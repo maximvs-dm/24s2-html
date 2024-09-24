@@ -12,9 +12,42 @@
     <p><a href="/index.html">Voltar para home</a></p>
 
     <form>
-      <div>formulário aqui!!</div>
+      <div>
+        <label for="input-cep">CEP</label>
+        <input type="text" id="input-cep" name="cep" />
+        <button id="btn-buscar" type="button">Buscar CEP</button>
+      </div>
 
-      <button id="btn-buscar" type="button">Buscar CEP</button>
+      <div>
+        <div>
+          <label for="rua">Rua</label>
+          <input type="text" id="rua" name="rua" required />
+        </div>
+        <div>
+          <label for="numero">Número</label>
+          <input type="text" id="numero" name="numero" required />
+        </div>
+        <div>
+          <label for="complemento">Complemento</label>
+          <input type="text" id="complemento" name="complemento" />
+        </div>
+        <div>
+          <label for="bairro">Bairro</label>
+          <input type="text" id="bairro" name="bairro" required />
+        </div>
+        <div>
+          <label for="cidade">Cidade</label>
+          <input type="text" id="cidade" name="cidade" required />
+        </div>
+        <div>
+          <label for="estado">Estado</label>
+          <input type="text" id="estado" name="estado" required />
+        </div>
+      </div>
+      <div>
+        <button type="reset">Limpar</button>
+        <button id="btn-enviar" type="submit">Enviar</button>
+      </div>
     </form>
   </body>
 </html>
