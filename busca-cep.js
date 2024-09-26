@@ -1,13 +1,35 @@
 const URL_BASE_VIACEP = "https://viacep.com.br/ws";
 
+function preencheInput(id, valor) {
+  const input = document.getElementById(id);
+  input.value = valor;
+  input.readOnly = true;
+}
+
 function preencheForm(dados) {
-  console.log(dados);
+  preencheInput("rua", dados.logradouro);
+  preencheInput("bairro", dados.bairro);
+  preencheInput("cidade", dados.localidade);
+  preencheInput("estado", dados.uf);
+
+  const inputNumero = document.getElementById("numero");
+  inputNumero.focus();
+}
+
+function msgErro(erro) {
+  console.log(erro);
+  alert("Não foi possível buscar o cep, preencha manualmente os campos.");
 }
 
 function buscaCep() {
   const inputCep = document.getElementById("input-cep");
 
-  const cep = inputCep.value;
+  const cep = inputCep.value.replaceAll(/\D/g, "");
+
+  if (cep.length !== 8) {
+    alert("O CEP digitado é inválido, corrija o valor e tente novamente.");
+    return null;
+  }
 
   const url = `${URL_BASE_VIACEP}/${cep}/json/`;
 
@@ -25,7 +47,7 @@ function buscaCep() {
       return dados;
     })
     .then(preencheForm)
-    .catch((erro) => console.log(erro));
+    .catch(msgErro);
 }
 
 btn = document.getElementById("btn-buscar");
