@@ -14,7 +14,12 @@
     <form>
       <div>
         <label for="input-cep">CEP</label>
-        <input type="text" id="input-cep" name="cep" />
+        <input
+          type="text"
+          id="input-cep"
+          name="cep"
+          pattern="\d{2}\.?\d{3}-?\d{3}"
+        />
         <button id="btn-buscar" type="button">Buscar CEP</button>
       </div>
 
