@@ -17,16 +17,40 @@
       <form method="post">
         <div>
           <label for="input-cep">CEP</label>
-          <input type="text" name="cep" id="input-cep" />
+          <input
+            type="text"
+            name="cep"
+            id="input-cep"
+            minlength="8"
+            maxlength="10"
+          />
           <button id="btn-cep" type="button">Buscar CEP</button>
         </div>
         <div>
-          <label for="rua">Rua</label>
-          <input type="text" name="rua" id="rua" readonly/>
-          <label for="numero">Numero</label>
-          <input type="text" name="numero" id="numero" disabled/>
-          <label for="complemento">Complemento</label>
-          <input type="text" name="complemento" id="complemento" />
+          <div>
+            <label for="rua">Rua</label>
+            <input type="text" name="rua" id="rua" />
+          </div>
+          <div>
+            <label for="numero">Numero</label>
+            <input type="text" name="numero" id="numero" />
+          </div>
+          <div>
+            <label for="complemento">Complemento</label>
+            <input type="text" name="complemento" id="complemento" />
+          </div>
+          <div>
+            <label for="bairro">Bairro</label>
+            <input type="text" name="bairro" id="bairro" />
+          </div>
+          <div>
+            <label for="cidade">Cidade</label>
+            <input type="text" name="cidade" id="cidade" />
+          </div>
+          <div>
+            <label for="estado">Estado</label>
+            <input type="text" name="estado" id="estado" />
+          </div>
         </div>
         <div>
           <button type="reset">Limpar</button>
