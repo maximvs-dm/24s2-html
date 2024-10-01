@@ -1,4 +1,6 @@
 const URL_BASE_VIACEP = "https://viacep.com.br/ws";
+const IS_NOT_DIGIT_REGEX = /\D/g;
+const IS_DIGIT_REGEX = /\d/;
 
 function preencheInput(id, valor) {
   const input = document.getElementById(id);
@@ -24,7 +26,7 @@ function msgErro(erro) {
 function buscaCep() {
   const inputCep = document.getElementById("input-cep");
 
-  const cep = inputCep.value.replaceAll(/\D/g, "");
+  const cep = inputCep.value.replaceAll(IS_NOT_DIGIT_REGEX, "");
 
   if (cep.length !== 8) {
     alert("O CEP digitado é inválido, corrija o valor e tente novamente.");
@@ -52,3 +54,50 @@ function buscaCep() {
 
 btn = document.getElementById("btn-buscar");
 btn.addEventListener("click", buscaCep);
+
+function handleKeyDown(event) {
+  const isDigit = IS_DIGIT_REGEX.test(event.key);
+  const isDelete = ["Backspace", "Delete"].includes(event.key);
+  const isArrow = ["ArrowLeft", "ArrowRight"].includes(event.key);
+
+  if (!isDigit && !isDelete & !isArrow) event.preventDefault();
+}
+
+async function getCepData(cep) {
+  const url = `${URL_BASE_VIACEP}/${cep}/json/`;
+
+  console.log("chamando o viacep");
+  const response = await fetch(url);
+  console.log("convertendo para json");
+  const dados = await response.json();
+  console.log(dados);
+
+  if ("erro" in dados) {
+    throw new Error("CEP não encontrado");
+  }
+
+  return dados;
+}
+
+async function handleKeyUp(event) {
+  const valorAtual = event.target.value;
+  console.log({ key: event.key, valorAtual });
+
+  if (valorAtual.length !== 8) {
+    console.log("ainda não tem 8 dígitos, retornando nulo");
+    return null;
+  }
+
+  try {
+    const dadosCep = await getCepData(valorAtual);
+    preencheForm(dadosCep);
+  } catch (e) {
+    alert("CEP não encontrado");
+    console.log(e);
+  }
+}
+
+// event.target.value = valorAtual.replaceAll(IS_NOT_DIGIT_REGEX, "");
+const inputCep = document.getElementById("input-cep");
+inputCep.addEventListener("keydown", handleKeyDown);
+inputCep.addEventListener("keyup", handleKeyUp);
