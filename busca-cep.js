@@ -1,10 +1,5 @@
 const BASE_URL_VIACEP = "https://viacep.com.br/ws";
 
-// bairro: "Bom Retiro"
-// estado: "São Paulo"
-// localidade: "São Paulo"
-// logradouro: "Rua Ribeiro de Lima"
-
 function preencheInput(id, valor) {
   const input = document.getElementById(id);
   input.value = valor;
@@ -22,9 +17,9 @@ function preencheCep(dados) {
 }
 
 function buscaCep() {
-  inputCep = document.getElementById("input-cep");
+  const inputCep = document.getElementById("input-cep");
 
-  cep = inputCep.value.replaceAll(/\D/g, "");
+  const cep = inputCep.value.replaceAll(/\D/g, "");
 
   console.log("ciclou no botão", cep);
 
@@ -57,5 +52,54 @@ function buscaCep() {
     });
 }
 
-btn = document.getElementById("btn-cep");
+const IS_DIGIT_REGEX = /\d/;
+
+const btn = document.getElementById("btn-cep");
 btn.addEventListener("click", buscaCep);
+
+async function getCep(cep) {
+  const url = `${BASE_URL_VIACEP}/${cep}/json/`;
+  const response = await fetch(url);
+
+  if (response.status !== 200) {
+    throw new Error("Falha na comunicação com a API do ViaCep")
+  }
+
+  const dados = await response.json();
+
+  if ("erro" in dados) {
+    throw new Error("Cep não encontrado");
+  }
+
+  return dados;
+}
+
+function handleKeyDown(event) {
+  const isDigit = IS_DIGIT_REGEX.test(event.key);
+  const allowedKeys = ["ArrowRight", "ArrowLeft", "Backspace", "Delete"];
+  const valorAtual = event.target.value;
+  console.log("down", { tecla: event.key, isDigit, valorAtual });
+  if (!isDigit && !allowedKeys.includes(event.key)) {
+    event.preventDefault();
+  }
+}
+
+async function handleKeyUp(event) {
+  const valorAtual = event.target.value;
+  console.log("up", { valorAtual });
+
+  if (valorAtual.length !== 8) {
+    return null;
+  }
+
+  try {
+    const dadosCep = await getCep(valorAtual);
+    preencheCep(dadosCep);
+  } catch (e) {
+    alert(e.message);
+  }
+}
+
+const inputCep = document.getElementById("input-cep");
+inputCep.addEventListener("keydown", handleKeyDown);
+inputCep.addEventListener("keyup", handleKeyUp);
