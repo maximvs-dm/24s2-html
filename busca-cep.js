@@ -55,12 +55,30 @@ function buscaCep() {
 btn = document.getElementById("btn-buscar");
 btn.addEventListener("click", buscaCep);
 
-function handleKeyDown(event) {
+function validateKey(event) {
   const isDigit = IS_DIGIT_REGEX.test(event.key);
-  const isDelete = ["Backspace", "Delete"].includes(event.key);
-  const isArrow = ["ArrowLeft", "ArrowRight"].includes(event.key);
+  // const isDelete = ["Backspace", "Delete"].includes(event.key);
+  // const isArrow = ["ArrowLeft", "ArrowRight"].includes(event.key);
+  const allowedKeys = ["Backspace", "Delete", "ArrowLeft", "ArrowRight"];
 
-  if (!isDigit && !isDelete & !isArrow) event.preventDefault();
+  if (!isDigit && !allowedKeys.includes(event.key)) event.preventDefault();
+}
+
+function clearField(id) {
+  const input = document.getElementById(id);
+  input.value = "";
+  input.readOnly = false;
+}
+
+function clearFields(event) {
+  if (!["Backspace", "Delete"].includes(event.key)) {
+    return null;
+  }
+
+  clearField("rua");
+  clearField("bairro");
+  clearField("cidade");
+  clearField("estado");
 }
 
 async function getCepData(cep) {
@@ -99,5 +117,6 @@ async function handleKeyUp(event) {
 
 // event.target.value = valorAtual.replaceAll(IS_NOT_DIGIT_REGEX, "");
 const inputCep = document.getElementById("input-cep");
-inputCep.addEventListener("keydown", handleKeyDown);
+inputCep.addEventListener("keydown", validateKey);
+inputCep.addEventListener("keydown", clearFields);
 inputCep.addEventListener("keyup", handleKeyUp);
