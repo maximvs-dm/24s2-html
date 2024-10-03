@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form 2</title>
+  </head>
+  <body>
+    <h1>Formulário genérico</h1>
+    <p><a href="/index.html">Voltar para home</a></p>
+
+    <form method="post">
+      <div>
+        <label for="color">Color:</label>
+        <input type="color" name="color" id="color" required />
+      </div>
+      <div>
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date" required />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" />
+      </div>
+      <div>
+        <label for="file">File:</label>
+        <input type="file" name="file" id="file" />
+      </div>
+      <div>
+        <label for="number">Number:</label>
+        <input type="number" name="number" id="number" required />
+      </div>
+      <div>
+        <label for="search">Search:</label>
+        <input type="search" name="search" id="search" required />
+      </div>
+      <div>
+        <label for="range">Range:</label>
+        <input type="range" name="range" id="range" required />
+      </div>
+
+      <div>
+        <label for="select">Selecione o estado:</label>
+        <select name="select" id="select">
+          <option value="">Escolha uma opção</option>
+          <option value="SP">São Paulo</option>
+          <option value="MG">Minas Gerais</option>
+          <option value="RN">Rio Grande do Norte</option>
+          <option value="BA">Bahia</option>
+        </select>
+      </div>
+
+      <fieldset>
+        <legend>Conjunto 1</legend>
+        <input
+          type="checkbox"
+          name="checkbox"
+          id="checkbox-1"
+          value="checkbox-1"
+        />
+        <label for="checkbox-1">Checkbox-1</label>
+        <input
+          type="checkbox"
+          name="checkbox"
+          id="checkbox-2"
+          value="checkbox-2"
+        />
+        <label for="checkbox-2">Checkbox-2</label>
+        <input
+          type="checkbox"
+          name="checkbox"
+          id="checkbox-3"
+          value="checkbox-3"
+        />
+        <label for="checkbox-3">Checkbox-3</label>
+        <input
+          type="checkbox"
+          name="checkbox"
+          id="checkbox-4"
+          value="checkbox-4"
+        />
+        <label for="checkbox-4">Checkbox-4</label>
+        <input
+          type="checkbox"
+          name="checkbox"
+          id="checkbox-5"
+          value="checkbox-5"
+        />
+        <label for="checkbox-5">Checkbox-5</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Conjunto 2</legend>
+        <input type="radio" name="radio" id="radio-1" value="radio-1" />
+        <label for="radio-1">radio-1</label>
+        <input type="radio" name="radio" id="radio-2" value="radio-2" />
+        <label for="radio-2">radio-2</label>
+        <input type="radio" name="radio" id="radio-3" value="radio-3" />
+        <label for="radio-3">radio-3</label>
+        <input type="radio" name="radio" id="radio-4" value="radio-4" />
+        <label for="radio-4">radio-4</label>
+        <input type="radio" name="radio" id="radio-5" value="radio-5" />
+        <label for="radio-5">radio-5</label>
+      </fieldset>
+      <div>
+        <label for="area-1">Área de texto 1</label>
+        <textarea name="area-1" id="area-1"></textarea>
+      </div>
+      <div>
+        <label for="area-2">Área de texto 2</label>
+        <textarea
+          name="area-2"
+          id="area-2"
+          cols="30"
+          rows="10"
+          style="resize: none"
+        ></textarea>
+      </div>
+      <div>
+        <button type="reset">Limpar</button>
+        <button type="submit">Enviar</button>
+      </div>
+    </form>
+  </body>
+</html>
