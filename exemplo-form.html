@@ -6,7 +6,45 @@
     <title>Document</title>
   </head>
   <body>
-    <form>
+    <h1>Formulário de exemplo</h1>
+    <a href="/index.html">Voltar para Home</a>
+    <br />
+    <br />
+
+    <form method="post">
+      <div>
+        <label for="color">Color:</label>
+        <input type="color" name="color" id="color" required />
+      </div>
+      <div>
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date" required />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" />
+      </div>
+      <div>
+        <label for="file">File:</label>
+        <input type="file" name="file" id="file" />
+      </div>
+      <div>
+        <label for="number">Number:</label>
+        <input type="number" name="number" id="number" required />
+      </div>
+      <div>
+        <label for="search">Search:</label>
+        <input type="search" name="search" id="search" required />
+      </div>
+      <div>
+        <label for="range">Range:</label>
+        <input type="range" name="range" id="range" required />
+      </div>
+
       <div>
         <select name="teste-select-1" id="select">
           <option value="">Selecione uma opção</option>
@@ -24,7 +62,18 @@
           <option>Valor 4 sem value</option>
         </select>
 
+        <div>
+          <input
+            type="radio"
+            name="teste-radio"
+            value="a"
+            id="input-teste-radio"
+          />
+          <label for="input-teste-radio">Teste</label>
+        </div>
+
         <fieldset>
+          <legend>Grupo 1</legend>
           <input type="checkbox" name="teste-checkbox" value="a" id="input-a" />
           <label for="input-a">Valor A</label>
           <input type="checkbox" name="teste-checkbox" value="b" id="input-b" />
@@ -38,6 +87,7 @@
         </fieldset>
 
         <fieldset>
+          <legend>Grupo 2</legend>
           <input type="radio" name="teste-radio" value="a" id="input-a-radio" />
           <label for="input-a-radio">Valor A</label>
           <input type="radio" name="teste-radio" value="b" id="input-b-radio" />
@@ -50,6 +100,9 @@
           <label for="input-e-radio">Valor E</label>
         </fieldset>
       </div>
+
+      <button type="reset">Limpar</button>
+      <button type="submit">Enviar</button>
     </form>
   </body>
 </html>
