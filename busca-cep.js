@@ -62,7 +62,7 @@ async function getCep(cep) {
   const response = await fetch(url);
 
   if (response.status !== 200) {
-    throw new Error("Falha na comunicação com a API do ViaCep")
+    throw new Error("Falha na comunicação com a API do ViaCep");
   }
 
   const dados = await response.json();
@@ -84,6 +84,24 @@ function handleKeyDown(event) {
   }
 }
 
+function limpaInput(id) {
+  const input = document.getElementById(id);
+  input.value = "";
+  input.readOnly = false;
+}
+
+function clearFormFields(event) {
+  const deleteKeys = ["Backspace", "Delete"];
+  if (!deleteKeys.includes(event.key)) {
+    event.preventDefault();
+    return null;
+  }
+  limpaInput("rua");
+  limpaInput("bairro");
+  limpaInput("cidade");
+  limpaInput("estado");
+}
+
 async function handleKeyUp(event) {
   const valorAtual = event.target.value;
   console.log("up", { valorAtual });
@@ -103,3 +121,4 @@ async function handleKeyUp(event) {
 const inputCep = document.getElementById("input-cep");
 inputCep.addEventListener("keydown", handleKeyDown);
 inputCep.addEventListener("keyup", handleKeyUp);
+inputCep.addEventListener("keyup", clearFormFields);
