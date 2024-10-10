@@ -35,7 +35,7 @@ function buscaPokemon() {
   const input = document.getElementById("nome-pokemon");
   const nome = input.value;
 
-  console.log("nome digitado:", nome);
+  // console.log("nome digitado:", nome);
 
   if (!nome) {
     alert("Digite o nome do Pokemon");
@@ -56,7 +56,7 @@ function buscaPokemon() {
     })
     .then((dados) => {
       const hpStat = dados.stats.find((f) => f.stat.name === "hp");
-      console.log(hpStat);
+      // console.log(hpStat);
 
       const dadosUteis = {
         imageSrc: dados.sprites.front_default,
@@ -64,7 +64,7 @@ function buscaPokemon() {
         hp: hpStat.base_stat,
       };
 
-      console.log(dadosUteis);
+      // console.log(dadosUteis);
       criaCard(dadosUteis);
     })
     .catch((erro) => alert(erro.message));
