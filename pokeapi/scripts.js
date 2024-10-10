@@ -67,8 +67,16 @@ function buscaPokemon() {
       // console.log(dadosUteis);
       criaCard(dadosUteis);
     })
+    .then(() => (input.value = ""))
     .catch((erro) => alert(erro.message));
 }
 
 const btnBuscar = document.getElementById("buscar-pokemon");
+const inputNome = document.getElementById("nome-pokemon");
 btnBuscar.addEventListener("click", buscaPokemon);
+inputNome.addEventListener("keydown", (evento) => {
+  if (evento.key === "Enter") {
+    evento.preventDefault();
+    buscaPokemon();
+  }
+});
