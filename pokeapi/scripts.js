@@ -28,7 +28,7 @@ function buscaPokemon() {
   const input = document.getElementById("nome-pokemon");
   const nome = input.value;
 
-  console.log("valor digitado:", nome);
+  // console.log("valor digitado:", nome);
 
   if (!nome) {
     alert("Digite o nome de um Pokemon para buscar!");
@@ -50,7 +50,7 @@ function buscaPokemon() {
     })
     .then((dados) => {
       const hpStat = dados.stats.find((f) => f.stat.name === "hp");
-      console.log(hpStat);
+      // console.log(hpStat);
       const dadosUteis = {
         imageSrc: dados.sprites.front_default,
         nome: dados.name,
