@@ -1,0 +1,31 @@
+.caixa {
+  background-color: aqua;
+  box-sizing: border-box;
+  border: solid 2px black;
+  padding: 6px;
+}
+
+.retangulo {
+  background-color: burlywood;
+  width: 600px;
+  margin: 30px auto;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.close-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: fit-content;
+}
+
+.sticky {
+  z-index: 10;
+  margin: 0;
+  width: 100%;
+  background-color: aliceblue;
+  position: sticky;
+  top: 0;
+}
