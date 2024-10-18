@@ -1,0 +1,25 @@
+.caixa {
+  border: solid 2px aliceblue;
+  margin: 15px auto;
+  padding: 20px;
+
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.w-600 {
+  width: 600px;
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 6px;
+  width: fit-content;
+}
+
+.relative {
+  position: relative;
+}
