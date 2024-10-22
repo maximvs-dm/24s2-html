@@ -14,7 +14,6 @@
 }
 
 .close-icon {
-  position: absolute;
   top: 0;
   right: 0;
 
@@ -28,4 +27,12 @@
   background-color: aliceblue;
   position: sticky;
   top: 0;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
 }
