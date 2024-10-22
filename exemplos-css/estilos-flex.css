@@ -1,0 +1,30 @@
+.flex {
+  display: flex;
+  height: 800px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.flex-item {
+  border: 1px solid blue;
+  padding: 4px 6px;
+  font-size: 36px;
+  height: 42px;
+  /* width: 42px; */
+  text-align: center;
+  min-width: 42px;
+}
+
+.item-a {
+  flex: 1 1 100px;
+}
+
+.item-b {
+  flex: 2 1 100px;
+}
+
+.item-c {
+  flex: 1 2 100px;
+}
