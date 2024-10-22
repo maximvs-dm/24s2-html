@@ -1,0 +1,18 @@
+.container {
+  display: grid;
+  grid-template-columns: 2fr 200px repeat(4, 1fr);
+}
+
+.grid-item {
+  display: flex;
+  border: 1px solid blue;
+  padding: 4px 6px;
+  font-size: 36px;
+  height: 42px;
+  text-align: center;
+}
+
+.item-a {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
