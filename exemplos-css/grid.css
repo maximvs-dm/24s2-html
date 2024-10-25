@@ -1,0 +1,25 @@
+.grid {
+  /* height: 600px; */
+  border: 2px solid yellow;
+  margin: 20px auto;
+  overflow-y: auto;
+
+  grid-template-columns: 1fr 150px 30% 2fr 2fr;
+
+  display: grid;
+}
+
+.grid-item {
+  height: 42px;
+  font-size: 36px;
+  padding: 4px;
+  border: 1px solid chartreuse;
+  background-color: gray;
+  text-align: center;
+  color: purple;
+}
+
+.item-c {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
