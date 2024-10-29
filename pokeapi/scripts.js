@@ -2,12 +2,8 @@ function criaCard(dados) {
   const containerPai = document.getElementById("container");
 
   const card = document.createElement("div");
-  card.style.border = "solid 1px black";
-  card.style.borderRadius = "8px";
-  card.style.textAlign = "center";
-  card.style.padding = "4px";
-  card.style.margin = "4px";
-  card.style.width = "fit-content";
+  card.classList.add("teste");
+  card.classList.add("card");
 
   const foto = document.createElement("img");
   const nome = document.createElement("p");
@@ -20,6 +16,12 @@ function criaCard(dados) {
   card.appendChild(foto); //sprites.front_default
   card.appendChild(nome); //name
   card.appendChild(vida);
+
+  card.id = `card-${dados.nome}`;
+
+  // if (dados.nome === "pikachu") {
+  //   card.style.backgroundColor = "gray";
+  // }
 
   containerPai.appendChild(card);
 }
