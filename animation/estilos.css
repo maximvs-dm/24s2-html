@@ -1,0 +1,53 @@
+#container {
+  height: 50vh;
+  width: 100vw;
+  display: flex;
+  gap: 10px;
+  overflow: hidden; /* esconde qualquer parte do sol abaixo do horizonte */
+  background-color: lightblue;
+  justify-content: center; /* centraliza o sol ao fundo */
+}
+
+.sun:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.sun:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.sun:nth-child(4) {
+  animation-delay: 0.9s;
+}
+.sun:nth-child(5) {
+  animation-delay: 1.2s;
+}
+
+.sun {
+  background-color: yellow;
+  border-radius: 50%; /* cria um fundo circular */
+  height: 70px; /* torna o sol do tamanho da viewport */
+  aspect-ratio: 1 / 1;
+  animation: 3s ease-in-out 0s infinite pular, 3s ease-in-out 0s infinite cores;
+}
+
+@keyframes pular {
+  0%,
+  40%,
+  100% {
+    transform: translateY(calc(50vh - 70px));
+  }
+  70% {
+    /* retorna o sol à sua posição padrão */
+    transform: translateY(25vh);
+  }
+}
+
+@keyframes cores {
+  0%,
+  50%,
+  100% {
+    background-color: yellow;
+  }
+  70% {
+    background-color: brown;
+  }
+}
