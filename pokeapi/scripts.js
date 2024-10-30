@@ -2,12 +2,8 @@ function criaCard(dados) {
   const container = document.getElementById("container");
 
   const card = document.createElement("div");
-  card.style.border = "solid 1px black";
-  card.style.borderRadius = "8px";
-  card.style.textAlign = "center";
-  card.style.padding = "4px";
-  card.style.margin = "4px";
-  card.style.width = "fit-content";
+  card.classList.add('teste')
+  card.classList.add('card')
 
   const foto = document.createElement("img");
   const nome = document.createElement("p");
@@ -16,6 +12,8 @@ function criaCard(dados) {
   foto.src = dados.imageSrc;
   nome.textContent = dados.nome;
   vida.textContent = `${dados.hp} HP`;
+
+  card.id = `card-${dados.nome}`
 
   card.appendChild(foto);
   card.appendChild(nome);
